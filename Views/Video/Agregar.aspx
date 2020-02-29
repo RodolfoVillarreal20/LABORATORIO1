@@ -6,22 +6,26 @@
 <head runat="server">
     <title>Agregar</title>
 </head>
-<body>             
+<body>       
+<form action="/Video/Agregar" method="post">
+    <fieldset>
+        <legend>Datos contacto </legend>      
     <h1>    AGREGAR VIDEOS
         <br />  
-    <label for= "idVideo">idVideo</label>
-    <input type= "text" name= "idVideo"/>
+    <label for= "idvideo">idvideo</label>
+    <input type= "text" name= "idvideo"/>
 
     
-    <label for= "Titulo">Titulo</label>
-    <input type= "text" name= "Titulo"/>
+    <label for= "titulo">titulo</label>
+    <input type= "text" name= "titulo"/>
 
 
-    <label for= "reproducciones">Reproducciones</label>
+    <label for= "reproducciones">reproducciones</label>
     <input type= "text" name= "Reproducciones"/>
 
-    <label for= "Url">Url</label>
-    <input type= "text" name= "Url"/>
+    <label for= "url">url</label>
+    <input type= "text" name= "url"/>
+
         <br />
      <input type= "submit" Value= "registrar video"/> 
     

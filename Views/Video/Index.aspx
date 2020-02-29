@@ -14,8 +14,16 @@
         //sirve para buscar en cada trenglon en la base de datos
         foreach (System.Data.DataRow ren in ((System.Data.DataTable)ViewData["video"]).Rows)
         {%>
+    <br />
+            <label for= "idVideo">idVideo</label>
+            <%: ren["idvideo"].ToString() %>  </p>
+            <label for= "titulo">titulo</label>
+           <p> <%: ren["titulo"].ToString() %>  </p>
+           <label for= "reproducciones">reproducciones</label>
+           <p> <%: ren["reproducciones"].ToString() %>  </p>
+           <label for= "url">url</label>
+           <p> <%: ren["url"].ToString() %>  </p>
             
-            <p> <%: ren["titulo"].ToString() %>  </p>
              <iframe width="560" height="315" src="<%: ren["url"].ToString() %>"frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             
     <%  }

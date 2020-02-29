@@ -49,16 +49,78 @@ select * from video*/
 
             return View();
         }
+        //muestra la interfaz del formulario
+        /*public ActionResult Agregar()
+        {
+
+            return View();
+        }*/
+        //POST procesa los datos ingresados al formulario
+        [HttpPost]
+        public ActionResult Agregar(int idvideo,
+                                   string titulo,
+                                   string reproducciones,
+                                   string url)
+        {
+            //GUARDAR EN SQL
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            parametros.Add(new SqlParameter("@idvideo", idvideo));
+            parametros.Add(new SqlParameter("@titulo", titulo));
+            parametros.Add(new SqlParameter("@reproducciones", reproducciones));
+            parametros.Add(new SqlParameter("@url", url));
+
+
+            BaseHelper.ejecutarSentencia("INSERT INTO VIDEO" + " VALUES(@idvideo,@titulo,@reproducciones,@url)", CommandType.Text, parametros);
+
+
+
+            return View("MensajeAgregar");
+        }
         public ActionResult Eliminar()
         {
 
             return View();
         }
+        [HttpPost]
+        public ActionResult Eliminar(int idvideo)
+        {
+            //GUARDAR EN SQL
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            parametros.Add(new SqlParameter("@idvideo", idvideo));
+
+
+
+            BaseHelper.ejecutarSentencia("DELETE FROM VIDEO WHERE idvideo = @idvideo", CommandType.Text, parametros);
+
+
+
+            return View("MensajeEliminar");
+        }
+
         public ActionResult Modificar()
         {
 
             return View();
         }
+        [HttpPost]
+        public ActionResult Modificar(int idvideo,
+                                   string titulo,
+                                   string reproducciones,
+                                   string url)
+        {
+            //GUARDAR EN SQL
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            parametros.Add(new SqlParameter("@idvideo", idvideo));
+            parametros.Add(new SqlParameter("@titulo", titulo));
+            parametros.Add(new SqlParameter("@reproducciones", reproducciones));
+            parametros.Add(new SqlParameter("@url", url));
 
+
+            BaseHelper.ejecutarSentencia("UPDATE VIDEO SET idvideo = @idvideo,Titulo = @titulo,reproducciones = @reproducciones, url = @url WHERE idvideo = @idvideo", CommandType.Text, parametros);
+
+
+
+            return View("MensajeModificar");
+        }
     }
 }

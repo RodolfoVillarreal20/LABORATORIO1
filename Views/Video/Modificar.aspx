@@ -7,6 +7,9 @@
     <title>Modificar</title>
 </head>
 <body>
+<form action="/Video/Modificar" method="post">
+    <fieldset>
+        <legend>Datos contacto </legend>
     <h1>    Modificar Videos
     <label for= "idVideo">idVideo</label>
     <input type= "text" name= "idVideo"/>
